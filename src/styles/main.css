@@ -1,0 +1,67 @@
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("../images/wall.png");
+}
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 90px;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    border-bottom: 5px solid #ffd700;
+}
+
+.panel {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+.square {
+    height: 200px;
+    width: 200px;
+    
+    border: 3px solid #ffd700;
+    background-color: #000000;
+}
+
+.enemmy {
+    background-image: url("../images/ralph-1.png");
+    background-size: cover;
+    cursor: pointer;
+}
+
+.enemmy-two {
+    background-image: url("../images/ralph-2.png");
+    background-size: cover;
+    cursor: pointer;
+}
+
+.menu-time h2:nth-child(1),
+.menu-score h2:nth-child(1) {
+    color: #d2232a;
+}
+
+.menu-time h2:nth-child(2),
+.menu-score h2:nth-child(2) {
+    margin-top: .9rem;
+}
+
+.menu-lives {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-lives img {
+    height: 60px;
+    margin: 1rem;
+}
+
