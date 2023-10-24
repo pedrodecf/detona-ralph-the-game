@@ -23,6 +23,12 @@
   color: #d2232a;
 }
 
+.modal-wrapper p {
+  text-align: center;
+  font-size: 14px;
+  line-height: 165%;
+}
+
 .modal-wrapper.open {
   visibility: visible;
 }
@@ -51,4 +57,16 @@ button {
 button:hover {
   transform: scale(1.1);
   text-decoration: underline;
+}
+
+.restart {
+  display: flex;
+  margin: 2rem auto 0;
+  border: 10px solid #d2232a;
+  background-color: #d2232a;
+  color: #fff;
+}
+
+#game-over span {
+  color: #d2232a;
 }

@@ -6,6 +6,8 @@ const state = {
         timeLeft: document.querySelector("#time-left"),
         score: document.querySelector("#score"),
         modal: document.querySelector("#modal"),
+        playAgain: document.querySelector("#game-over"),
+        restartButton: document.querySelector(".restart"),
     },
     values: {
         timerId: null,        
@@ -16,20 +18,21 @@ const state = {
     },
     actions: {
         countDownTimerId: null,
-    }
+    },
+    difficulties : {
+        easy: document.querySelector(".easy"),
+        medium: document.querySelector(".medium"),
+        hard: document.querySelector(".hard")
+    },
 }
 
-const easy = document.querySelector(".easy")
-const medium = document.querySelector(".medium")
-const hard = document.querySelector(".hard")
-
-easy.addEventListener("click", () => {
+state.difficulties.easy.addEventListener("click", () => {
     gameDifficulty("easy")
 })
-medium.addEventListener("click", () => {
+state.difficulties.medium.addEventListener("click", () => {
     gameDifficulty("medium")
 })
-hard.addEventListener("click", () => {
+state.difficulties.hard.addEventListener("click", () => {
     gameDifficulty("hard")
 })
 
@@ -54,7 +57,7 @@ function countDown() {
         playSound("gameover")
         clearInterval(state.actions.countDownTimerId)
         clearInterval(state.values.timerId)
-        // alert(`Game Over! O seu resultado foi:  ${state.values.result}`)
+        gameOver()
     }
 }
 
@@ -67,6 +70,7 @@ function playSound(soundName) {
 function randomSquare() {
   state.view.squares.forEach((square) => {
     square.classList.remove("enemmy")
+    square.classList.remove("enemmy-two")
   })
 
   let randomNumber = Math.floor(Math.random() * 9)
@@ -89,8 +93,10 @@ function addListenerHitBox() {
             if (square.id === state.values.hitPosition) {
                 state.values.result++
                 state.view.score.textContent = state.values.result
+                square.classList.remove("enemmy")
+                square.classList.add("enemmy-two")
                 state.values.hitPosition = null
-                playSound("hit")
+                playSound("hit")                
             }
         })
     })
@@ -107,4 +113,28 @@ function startGame() {
     main()
 }
 
+function gameOver() {
+    state.view.playAgain.classList.add("open")
+    if (state.values.result >= 0) {
+        state.view.playAgain.querySelector("span").innerText = `${state.values.result} pontos`
 
+        state.view.restartButton.addEventListener("click", restartGame)
+    }
+}
+
+function restartGame() {
+    state.view.playAgain.classList.remove("open")
+    state.values.timerId = null
+    state.values.gameSpeed = 1000
+    state.values.hitPosition = 0
+    state.values.result = 0 
+    state.values.currentTime = 30
+    state.view.timeLeft.textContent = 30
+    state.actions.countDownTimerId = null
+    state.view.score.textContent = 0
+    state.view.squares.forEach((square) => {
+    square.classList.remove("enemmy")
+    square.classList.remove("enemmy-two")
+    })
+    state.view.modal.classList.add("open")
+}
