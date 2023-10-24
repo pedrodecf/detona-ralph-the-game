@@ -44,7 +44,7 @@
 
 1. Adicionei um sistema de dificuldade em 3 leveis (fácil, normal e difícil), que altera a velocidade em que os sprites do personagem aparecem na tela.
 2. Mudanças no css e manipulação de imagens (novo sprite do personagem principal, novo avatar para representar a vida do jogador e um sprite de animação ao clicar).
-3. Adicionei um sistema de alerta mais intuitivo, onde exibe a mensagem final de "Game Over" (com uma mensagem exibindo sua pontuação) já identada com o visual do jogo.
+3. Adicionei um sistema de alerta mais intuitivo, onde exibe a mensagem final de "Game Over" (com uma mensagem exibindo sua pontuação) já seguindo a identidade visual do jogo.
 4. Adicionei um sistema de reinício rápido, onde permite ao final do jogo já iniciar uma nova partida.
 
 
